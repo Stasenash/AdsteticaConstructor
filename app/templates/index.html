@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adstetica - Конструктор баннеров</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+		<h1>Adstetica</h1>
+		<hr>
+	</header>
+
+	<form action="" method="post">
+		<p>
+			<label> <!--for="username"-->Рекламный текст</label>
+		</p>
+		<p>
+			<input type="text" name="adtext">
+		</p>
+		<p>
+			<input type="submit">
+		</p>
+		<div class="search_gallery">
+			<style>
+				.search_gallery div{
+				 display: inline-block;
+				 text-align: center;
+				 width: 216px;
+				 height: 384px;
+			}
+			</style>
+			<div>
+				<img src="/static/1.jpg" width="216" height="384">
+				<a href="/static/1.jpg"download>
+					<span>Скачать</span>
+				</a>
+			</div>
+			<div>
+				<img src="/static/2.jpg" width="216" height="384">
+				<a href="/static/2.jpg"download>
+					<span>Скачать</span>
+				</a>
+			</div>
+			<div>
+			<img src="/static/3.jpg" width="216" height="384">
+			<a href="/static/3.jpg"download>
+				<span>Скачать</span>
+			</a>
+			</div>
+			<div>
+				<img src="/static/4.jpg" width="216" height="384">
+				<a href="/static/4.jpg"download>
+			  		<span>Скачать</span>
+				</a>
+			</div>
+  		</div>
+	</form>
+</body>
+</html>
