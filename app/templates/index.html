@@ -4,120 +4,34 @@
     <meta charset="UTF-8">
     <title>Adstetica - Конструктор баннеров</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/main.css', v=0.1)}}">
+	<script src="{{ url_for('static',filename='js/download.js') }}"></script>
 </head>
-	<style>
-		body {
-            background-image: url(static/adstetica_background.jpg); /* Путь к фоновому изображению */
-            background-color: #fff; /* Цвет фона */
-	   }
-
-	</style>
-	<h1>Конструктор баннеров</h1>
+	<h1 class="page-title">Конструктор баннеров</h1>
 	<hr>
 	<form id="generator-form" action="" method="post">
-        <style>
-            #generator-form {
-                width: 960px;
-                height: 250px;
-                position: absolute;
-                top: 30%;
-                left: 30%;
-                margin: -125px 0 0 -125px;
-                user-select: auto;
-                box-sizing: content-box;
-                display: block;
-        </style>
 		<p>
 			<label class="input-title">Рекламный текст</label>
-            <style>
-                .input-title {
-                    padding-bottom: 5px;
-                    font-family: 'Montserrat',Arial,sans-serif;
-                    font-weight: 300;
-                    color: #fff;
-                    font-size: 18px;
-                }
-            </style>
 		</p>
 		<p>
 			<input class="input-block" type="text" name="adtext">
-            <style>
-                .input-block {
-                    color: rgb(0, 0, 0);
-                    border: 1px solid rgb(255, 255, 255);
-                    user-select: auto;
-                    margin: 0;
-                    font-family: 'Montserrat',Arial,sans-serif;
-                    height: 60px;
-                    padding: 0 20px;
-                    font-size: 16px;
-                    line-height: 1.33;
-                    width: 100%;
-                    border: 0 none;
-                    box-sizing: border-box;
-                    outline: none;
-                    border-radius: 0;
-                }
-            </style>
 		</p>
 		<p>
 			<input class="form-submit" type="submit">
-            <style>
-                .form-submit {
-                    color: rgb(255, 255, 255);
-                    border: 2px solid rgb(112, 0, 255);
-                    background-color: rgb(112, 0, 255);
-                    border-radius: 30px;
-                    user-select: auto;
-                }
-            </style>
 		</p>
 
 		<div class="search_gallery">
-			<style>
-				.search_gallery div {
-                    display: inline-block;
-                    text-align: center;
-                    width: 216px;
-                    height: 384px;
-}
-			</style>
 			{% for image in images_list %}
 				<div>
 					<img src="data:image/{{ image['ext'] }};base64,{{ image['imageString'] }}" width="216" height="384">
-					<a class="download-button" href="download">
-						<span>Скачать</span>
-					</a>
+					<button class="download-button" type="button" onclick="clickHandler('{{ image['imageString'] }}', '{{ image['ext'] }}')">Скачать</button>
+					<script>
+						function clickHandler(imageString, ext) {
+							download("data:application/octet-stream;base64," + imageString, "pic." + ext, "application/octet-stream;base64");
+						}
+					</script>
 				</div>
 			{% endfor %}
-<!--			<div>-->
-<!--				<img src="/static/2.jpg" width="216" height="384">-->
-<!--				<a class="download-button" href="/static/2.jpg"download>-->
-<!--					<span>Скачать</span>-->
-<!--				</a>-->
-<!--			</div>-->
-<!--			<div>-->
-<!--			<img src="/static/3.jpg" width="216" height="384">-->
-<!--			<a class="download-button" href="/static/3.jpg"download>-->
-<!--				<span>Скачать</span>-->
-<!--			</a>-->
-<!--			</div>-->
-<!--			<div>-->
-<!--				<img src="/static/4.jpg" width="216" height="384">-->
-<!--				<a class="download-button" href="/static/4.jpg"download>-->
-<!--			  		<span>Скачать</span>-->
-<!--				</a>-->
-<!--			</div>-->
-            <style>
-                .download-button {
-                    color: rgb(255, 255, 255);
-                    border: 2px solid rgb(112, 0, 255);
-                    background-color: rgb(112, 0, 255);
-                    border-radius: 30px;
-                    user-select: auto;
-                }
-            </style>
   		</div>
 	</form>
 </body>

@@ -1,0 +1,77 @@
+body {
+    background-image: url("../adstetica_background.jpg"); /* Путь к фоновому изображению */
+    background-color: #fff; /* Цвет фона */
+}
+
+#generator-form {
+    width: 960px;
+    height: 250px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    margin: -125px 0 0 -125px;
+    user-select: auto;
+    box-sizing: content-box;
+    display: block;
+}
+
+.search_gallery div {
+    display: inline-block;
+    text-align: center;
+    width: 216px;
+    height: 384px;
+}
+
+.input-title {
+    padding-bottom: 5px;
+    font-family: 'Montserrat',Arial,sans-serif;
+    font-weight: 300;
+    color: #fff;
+    font-size: 18px;
+}
+
+.input-block {
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    user-select: auto;
+    margin: 0;
+    font-family: 'Montserrat',Arial,sans-serif;
+    height: 60px;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 1.33;
+    width: 100%;
+    border: 0 none;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 0;
+}
+
+.form-submit {
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(112, 0, 255);
+    background-color: rgb(112, 0, 255);
+    border-radius: 30px;
+    user-select: auto;
+}
+
+.search_gallery div {
+    display: inline-block;
+    text-align: center;
+    width: 216px;
+    height: 384px;
+}
+
+.download-button {
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(112, 0, 255);
+    background-color: rgb(112, 0, 255);
+    border-radius: 30px;
+    user-select: auto;
+}
+
+.page-title{
+    color: rgb(112, 0, 255);
+    user-select: auto;
+    font-family: 'Montserrat',Arial,sans-serif;
+}
