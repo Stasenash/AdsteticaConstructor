@@ -1,29 +1,22 @@
-import time
-import logging
-import pathlib
-import sys
-
-from multiprocessing import Pool
+import argparse
 import itertools
 import json
 import logging
 import os
 import pathlib
-import re
-import requests
 import sys
 import time
-
-from bs4 import BeautifulSoup
 from dataclasses import dataclass
-from dataclasses_json import dataclass_json
 from math import floor
-from seleniumwire import webdriver
+from multiprocessing import Pool
 from typing import List, Union, Optional
 from urllib.parse import urlparse, urlencode
-from urllib3.exceptions import SSLError, NewConnectionError
-import argparse
-import logging
+
+import requests
+from bs4 import BeautifulSoup
+from dataclasses_json import dataclass_json
+from seleniumwire import webdriver
+
 
 Driver = Union[webdriver.Chrome, webdriver.Edge,
                webdriver.Firefox, webdriver.Safari]
@@ -367,7 +360,7 @@ class YandexImagesDownloader():
         actual_last_page = 1 + floor(
             self.limit / YandexImagesDownloader.MAXIMUM_IMAGES_PER_PAGE)
 
-        logging.info(f"  Found {last_page+1} pages of {keyword}.")
+        logging.info(f"  Found {last_page + 1} pages of {keyword}.")
 
         # Getting all images.
         imgs_count = 0
@@ -380,7 +373,7 @@ class YandexImagesDownloader():
             if page > actual_last_page:
                 actual_last_page += 1
 
-            logging.info(f"  Scrapping page {page+1}/{actual_last_page}...")
+            logging.info(f"  Scrapping page {page + 1}/{actual_last_page}...")
 
             page_result = self.download_images_by_page(keyword, page,
                                                        imgs_count,
@@ -508,23 +501,23 @@ def setup_logging(quiet_mode):
     selenium_logger.setLevel(logging.WARNING)
 
 
-def main():
+def download_images(keyphrase, imagePath):
     try:
         args = argparse.Namespace(browser='Chrome',
                                   color=None,
                                   commercial=None,
                                   driver_path=None,
-                                  exact_isize=None,
-                                  extension=None,
+                                  exact_isize=[1080, 1920],
+                                  extension='jpg',
                                   iorient=None,
                                   isize=None,
                                   itype=None,
                                   json=False,
-                                  keywords='naruto and sasuke',
+                                  keywords=keyphrase,
                                   keywords_from_file=None,
-                                  limit=4,
+                                  limit=10,
                                   num_workers=0,
-                                  output_directory='images/',
+                                  output_directory=imagePath,
                                   quiet_mode=False,
                                   recent=None,
                                   single_image=None)
@@ -538,7 +531,3 @@ def main():
     except Exception as e:
         logging.error(e, exc_info=True)
         sys.exit(1)
-
-
-if __name__ == "__main__":
-    main()

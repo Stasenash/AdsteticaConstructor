@@ -13,6 +13,8 @@
 	   }
 
 	</style>
+	<h1>Конструктор баннеров</h1>
+	<hr>
 	<form id="generator-form" action="" method="post">
         <style>
             #generator-form {
@@ -81,14 +83,14 @@
                     height: 384px;
 }
 			</style>
-			 {% for image in images_list %}
+			{% for image in images_list %}
 				<div>
-					<img src= {{ image }} width="216" height="384">
-					<a class="download-button" href= {{ image }} download>
+					<img src="data:image/{{ image['ext'] }};base64,{{ image['imageString'] }}" width="216" height="384">
+					<a class="download-button" href="download">
 						<span>Скачать</span>
 					</a>
 				</div>
-			 {% endfor %}
+			{% endfor %}
 <!--			<div>-->
 <!--				<img src="/static/2.jpg" width="216" height="384">-->
 <!--				<a class="download-button" href="/static/2.jpg"download>-->

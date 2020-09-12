@@ -3,6 +3,8 @@ import textwrap
 import os
 from colorthief import ColorThief
 
+from app import app
+
 
 class OverlayText:
 
@@ -17,15 +19,16 @@ class OverlayText:
         # TODO разные размеры текста в зависимости от кол-ва слов
 
         size = 80
-        font = ImageFont.truetype('static/Montserrat.ttf', size=size)
+        rootPath = app.instance_path + "\\..\\app"
+        font = ImageFont.truetype(rootPath + '\\static\\Montserrat.ttf', size=size)
 
         # определяете положение текста на картинке
         text_position = (40, 640)
 
         # цвет текста, RGB
         text_color = (255, 255, 255)
-        if OverlayText._img_is_white(img_path):
-            text_color = (0, 0, 0)
+        # if OverlayText._img_is_white(img_path):
+        #     text_color = (0, 0, 0)
 
         # собственно, сам текст
         text = textwrap.fill(text, width=20)
