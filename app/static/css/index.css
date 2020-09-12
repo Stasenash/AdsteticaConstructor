@@ -1,0 +1,12 @@
+body {
+    background-image: url(static/adstetica_background.jpg); /* Путь к фоновому изображению */
+    background-color: #fff; /* Цвет фона */
+}
+
+.search_gallery div {
+    display: inline-block;
+    text-align: center;
+    width: 216px;
+    height: 384px;
+}
+

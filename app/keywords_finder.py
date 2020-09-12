@@ -1,7 +1,7 @@
 from rutermextract import TermExtractor
 
 
-class KeywordsFinder():
+class KeywordsFinder:
 
     @staticmethod
     def get_keywords(text):
@@ -10,7 +10,4 @@ class KeywordsFinder():
         for term in term_extractor(text):
             keyphrase += term.normalized + ' '
         return keyphrase
-
-print(KeywordsFinder.get_keywords("Продам свежие яблоки прямиком из Средней Азии"))
-
 
