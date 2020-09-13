@@ -1,6 +1,6 @@
 body {
-    background-image: url("../adstetica_background.jpg"); /* Путь к фоновому изображению */
-    background-color: #fff; /* Цвет фона */
+    background-image: url("../adstetica_background.jpg");
+    background-color: #fff;
 }
 
 #generator-form {

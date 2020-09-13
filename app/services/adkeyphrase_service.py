@@ -3,8 +3,12 @@ from app.hash_creator import HashCreator
 
 
 class AdkeyphraseService:
+    """Класс, записывающий и получающий информацию посредством базы данных"""
+
     @staticmethod
     def record(text, phrase):
+        """Делает запись текста и ключевой фразы в базу по хешу ключевой фразы"""
+
         conn = mysql.connect()
         cursor = conn.cursor()
         hash = HashCreator.get_hash(phrase)
@@ -18,6 +22,8 @@ class AdkeyphraseService:
 
     @staticmethod
     def is_existing(phrase):
+        """Проверяет существование записи в базе по хэшу"""
+
         conn = mysql.connect()
         cursor = conn.cursor()
         sql = "SELECT * FROM adkeyphrase WHERE hash = %s"
