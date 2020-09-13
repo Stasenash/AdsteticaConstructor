@@ -508,7 +508,7 @@ def download_images(keyphrase, imagePath):
                                   commercial=None,
                                   driver_path=None,
                                   exact_isize=[1080, 1920],
-                                  extension='jpg',
+                                  extension=None,
                                   iorient=None,
                                   isize=None,
                                   itype=None,

@@ -7,8 +7,8 @@ body {
     width: 960px;
     height: 250px;
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 35%;
+    left: 22%;
     margin: -125px 0 0 -125px;
     user-select: auto;
     box-sizing: content-box;
@@ -47,7 +47,7 @@ body {
     border-radius: 0;
 }
 
-.form-submit {
+.form-submit, .download-button {
     color: rgb(255, 255, 255);
     border: 2px solid rgb(112, 0, 255);
     background-color: rgb(112, 0, 255);
@@ -60,14 +60,6 @@ body {
     text-align: center;
     width: 216px;
     height: 384px;
-}
-
-.download-button {
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(112, 0, 255);
-    background-color: rgb(112, 0, 255);
-    border-radius: 30px;
-    user-select: auto;
 }
 
 .page-title{

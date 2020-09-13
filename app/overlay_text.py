@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import textwrap
 import os
 from colorthief import ColorThief
@@ -23,7 +23,7 @@ class OverlayText:
         font = ImageFont.truetype(rootPath + '\\static\\Montserrat.ttf', size=size)
 
         # определяете положение текста на картинке
-        text_position = (40, 640)
+        text_position = (50, 800)
 
         # цвет текста, RGB
         text_color = (255, 255, 255)

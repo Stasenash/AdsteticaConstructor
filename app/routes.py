@@ -3,8 +3,10 @@ import os
 
 from flask import render_template, request
 from app import app
+from app.hash_creator import HashCreator
 from app.keywords_finder import KeywordsFinder
 from app.overlay_text import OverlayText
+from app.services.adkeyphrase_service import AdkeyphraseService
 from app.yandex_images_finder import download_images
 
 
@@ -18,17 +20,24 @@ def index():
         rootPath = app.instance_path + "\\..\\app"
         imagePath = rootPath + "\\images\\"
 
+
+        keyphrase = KeywordsFinder.get_keywords(adtext)
+
+        if len(keyphrase) == 0:
+            keyphrase = adtext
+
+        hash = HashCreator.get_hash(keyphrase)
+        imagePath += hash + "\\"
+
         for c in os.listdir(imagePath):
             os.remove(os.path.join(imagePath, c))
 
-        keyphrase = KeywordsFinder.get_keywords(adtext)
-        if len(keyphrase) > 0:
-            download_images(keyphrase, imagePath)
-        else:
-            download_images(adtext, imagePath)
+        download_images(keyphrase, imagePath)
 
-        list_files = os.listdir(imagePath)
-        list_files = list_files[:4]
+        if not AdkeyphraseService.is_existing(keyphrase):
+            AdkeyphraseService.record(adtext, keyphrase)
+
+        list_files = os.listdir(imagePath)[:4]
 
         images_list = []
 

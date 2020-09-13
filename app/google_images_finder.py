@@ -100,5 +100,3 @@ def search_and_download(search_term: str, target_path='./images', number_images=
 
     for elem in res:
         persist_image(target_path, elem)
-
-search_and_download(search_term="рыбка свежая")
