@@ -5,9 +5,24 @@
     <title>Adstetica - Конструктор сториз</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="https://static.tildacdn.com/tild6565-6365-4966-a438-383065636630/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/main.css', v=0.1)}}">
-	<script src="{{ url_for('static',filename='js/download.js') }}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/main.css', v=0.1)}}">	<script src="{{ url_for('static',filename='js/download.js') }}"></script>
 </head>
+<body>
+	<!-- Прелоадер -->
+	<div class="preloader">
+	  <div class="preloader__image"></div>
+	</div>
+
+	 <script>
+		window.onload = function () {
+		  document.body.classList.add('loaded_hiding');
+		  window.setTimeout(function () {
+			document.body.classList.add('loaded');
+			document.body.classList.remove('loaded_hiding');
+		  }, 500);
+		}
+  	</script>
+
 	<h1 class="page-title">Конструктор сториз</h1>
 	<hr>
 	<form id="generator-form" action="" method="post">
@@ -18,7 +33,7 @@
 			<input class="input-block" type="text" name="adtext" placeholder="Продам свежие яблоки прямиком из Средней Азии">
 		</p>
 		<p>
-			<input class="form-submit" type="submit" value="Сгенерировать">
+			<input class="form-submit" type="submit" value="Сгенерировать" onclick="submitHandler()">
 		</p>
 
 		<div class="search_gallery">
@@ -35,5 +50,6 @@
 			{% endfor %}
   		</div>
 	</form>
+
 </body>
 </html>
