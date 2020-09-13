@@ -1,0 +1,15 @@
+beautifulsoup4==4.9.1
+bs4==0.0.1
+colorthief==0.2.1
+dataclasses-json==0.5.2
+Flask==1.1.2
+Flask-MySQL==1.5.1
+Jinja2==2.11.2
+lxml==4.5.2
+Pillow==7.2.0
+PyMySQL==0.10.1
+requests==2.24.0
+rutermextract==0.3
+selenium==3.141.0
+selenium-wire==2.1.1
+urllib3==1.25.10
